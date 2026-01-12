@@ -1,0 +1,7 @@
+../Src/mp41010.h:11:6:mcp41010_on	4	static
+../Src/mp41010.h:15:6:mcp41010_off	4	static
+../Src/mp41010.h:19:6:spi_write	16	static
+../Src/mp41010.h:26:6:mp41010_set_value	16	static
+../Src/main.c:14:13:delay	16	static
+../Src/main.c:20:6:spi_init	4	static
+../Src/main.c:64:5:main	16	static
