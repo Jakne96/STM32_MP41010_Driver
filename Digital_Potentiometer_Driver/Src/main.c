@@ -5,6 +5,7 @@
 #include "stm32f4xx.h"
 
 #include "mp41010.h"
+#include "pwm_lib.h"
 #define DELAY_COUNT    ( 830000 )   /* delay count */
 /***************************************************************************//**
   \details  Providing Delay by running empty for loop
@@ -61,21 +62,23 @@ void spi_init(){
 				(0x1 << 6);
 }
 
+
 int main(void)
 {
 
 	spi_init();
-
+	pwm_init();
   /* Endless loop */
 
   while(1)
   {
 	  for(uint8_t i = 0; i < 128; i++){
 
+	  pwm_set(i*20);
 	  mcp41010_on();
 	  mp41010_set_value(i);
 	  mcp41010_off();
-	  delay();
+	  //delay();
 	  }
   }
 }
