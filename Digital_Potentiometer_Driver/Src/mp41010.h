@@ -18,13 +18,15 @@ void mcp41010_off(){
 
 void spi_write(uint8_t c){
 	while(!(SPI1->SR & SPI_SR_TXE)){;}
+
+	//do przetestowania, wysyłasz (0x11 << 8) | c, wtedy jest od razu komenda i dane
 	SPI1->DR = c;
 	while((SPI1->SR & SPI_SR_BSY)){;}
 
 }
 
 void mp41010_set_value(uint8_t data){
-	spi_write(0x11);
+	spi_write(0x11);//Command line to start sending data
 	spi_write(data);
 }
 
